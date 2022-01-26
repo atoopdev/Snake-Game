@@ -1,0 +1,23 @@
+/* remove margins on typography to keep margins consistent */
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+body {
+  margin: 10;
+  padding: 10;
+}
+
+.grid {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.grid div {
+  width: 20px;
+  height: 20px;
+}
