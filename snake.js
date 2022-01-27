@@ -53,3 +53,7 @@ function moveSnake(){
 }
 
 moveSnake();
+
+let timerId = setInterval(moveSnake, 1000);
+
+// clearInterval(timeId);
