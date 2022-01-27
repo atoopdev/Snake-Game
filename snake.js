@@ -36,6 +36,16 @@ createGrid();
 currentSnake.forEach(index => gridItems[index].classList.add('snake'));
 
 function moveSnake(){
+// verify not about to move into wall
+let head = currentSnake[0];
+if(head + width >=100 && direction ===10) //traveling down and hitting bottom
+(head%width ===0 && direction ===-1) //traveling left and hit left wall
+(head%width ===9 && direction ===1) //travel right and hit right wall
+(head - width <0 && direction ===-10) //travel up and hit top wall
+{ return clearInterval(timeId)}
+
+
+
 
     // 1. remove tail
     // remove last element from snake array
@@ -55,6 +65,7 @@ function moveSnake(){
 
 moveSnake();
 
+// responsible for running moveSnake() on loop
 let timerId = setInterval(moveSnake, 1000);
 
 // clearInterval(timeId);
@@ -83,4 +94,4 @@ function control(e){
     
 }
 
-document.addEventListener("keyup", control)
+document.addEventListener("keydown", control)
