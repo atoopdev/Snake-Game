@@ -5,6 +5,7 @@ const gridItems = [];
 
 let currentSnake = [2,1,0];
 let direction = 1;
+let width = 10;
 
 
 
@@ -68,12 +69,16 @@ let timerId = setInterval(moveSnake, 1000);
 function control(e){
     if(e.keyCode ===39){
         console.log("right arrow")
+        direction = 1;
     } else if(e.keyCode ===38){
         console.log("up arrow")
+        direction = -width;
     } else if(e.keyCode ===37){
         console.log("left arrow")
+        direction = -1;
     } else if (e.keyCode ===40){
         console.log("down arrow")
+        direction = +width;
     }
     
 }
