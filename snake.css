@@ -12,12 +12,17 @@ body {
 }
 
 .grid {
+  /* key to making the squares wrap as grid */
+  display: flex;
+  flex-wrap: wrap;
+
   width: 200px;
   height: 200px;
   border: 1px solid black;
 }
 
-.grid div {
+.square {
   width: 20px;
   height: 20px;
+  background-color: grey;
 }
