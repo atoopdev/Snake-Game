@@ -57,3 +57,25 @@ moveSnake();
 let timerId = setInterval(moveSnake, 1000);
 
 // clearInterval(timeId);
+
+// keycodes
+// 39 right arrow
+// 38 up arrow
+// 37 left arrow
+// 40 down arrow
+
+// note keycode method is depricated
+function control(e){
+    if(e.keyCode ===39){
+        console.log("right arrow")
+    } else if(e.keyCode ===38){
+        console.log("up arrow")
+    } else if(e.keyCode ===37){
+        console.log("left arrow")
+    } else if (e.keyCode ===40){
+        console.log("down arrow")
+    }
+    
+}
+
+document.addEventListener("keyup", control)
