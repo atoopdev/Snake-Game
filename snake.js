@@ -5,7 +5,7 @@ const gridItems = [];
 
 let currentSnake = [2,1,0];
 let direction = 1;
-let width = 10;
+const width = 10;
 
 
 
@@ -14,7 +14,7 @@ function createGrid(){
     
 
     // create divs
-    for(let i=0;i<100;i++){
+    for(let i=0;i<width*width;i++){
         // create div
         const square = document.createElement('div');
         
@@ -38,10 +38,10 @@ currentSnake.forEach(index => gridItems[index].classList.add('snake'));
 function moveSnake(){
 // verify not about to move into wall
 let head = currentSnake[0];
-if((head + width >=100 && direction ===10) ||//traveling down and hitting bottom
+if((head + width >=width*width && direction ===width) ||//traveling down and hitting bottom
 (head%width ===0 && direction ===-1) ||//traveling left and hit left wall
-(head%width ===9 && direction ===1) ||//travel right and hit right wall
-(head - width <0 && direction ===-10) ||//travel up and hit top wall
+(head%width === width-1 && direction ===1) ||//travel right and hit right wall
+(head - width <0 && direction ===-width) ||//travel up and hit top wall
 gridItems[currentSnake[0] + direction].classList.contains('snake')
 )
 { return clearInterval(timeId)}
