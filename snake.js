@@ -38,11 +38,12 @@ currentSnake.forEach(index => gridItems[index].classList.add('snake'));
 function moveSnake(){
 // verify not about to move into wall
 let head = currentSnake[0];
-if(head + width >=100 && direction ===10) ||//traveling down and hitting bottom
+if((head + width >=100 && direction ===10) ||//traveling down and hitting bottom
 (head%width ===0 && direction ===-1) ||//traveling left and hit left wall
 (head%width ===9 && direction ===1) ||//travel right and hit right wall
 (head - width <0 && direction ===-10) ||//travel up and hit top wall
-gridItems[currentSnake[0] + direction].classList('snake');
+gridItems[currentSnake[0] + direction].classList.contains('snake')
+)
 { return clearInterval(timeId)}
 
 
