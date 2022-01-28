@@ -7,6 +7,8 @@ let currentSnake = [2,1,0];
 let direction = 1;
 const width = 10;
 
+let appleIndex = 0;
+
 
 
 function createGrid(){
@@ -97,3 +99,14 @@ function control(e){
 }
 
 document.addEventListener("keydown", control)
+
+function genApples(){
+    do{
+        // generate random number
+        appleIndex = Math.floor(Math.random() * gridItems.length) +1;
+        console.log(appleIndex);
+    } while (gridItems[appleIndex].classList.contains("snake"))
+    gridItems[appleIndex].classList.add("apple")
+}
+
+genApples();
