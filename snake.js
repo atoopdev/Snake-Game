@@ -41,15 +41,28 @@ function createGrid(){
 // ------------------------------------------------------------------------
 
 createGrid(); 
+createSnake();
 
+// ----------------------createSnake() ----------------------------------
+
+function createSnake(){
 // adds snake class to same index in gridItem as in currentSnake
-currentSnake.forEach(index => gridItems[index].classList.add('snake'));
+    currentSnake.forEach(index => gridItems[index].classList.add('snake'));
+}
+
+// -----------------------------------------------------------------------
+
+function removeSnake(){
+    currentSnake.forEach(index => gridItems[index].classList.remove('snake'));
+}
+
+genApples();
 
 // ---------------------startGame()---------------------------
 
 function startGame(){
     // remove snake from grid
-    currentSnake.forEach(index => gridItems[index].classList.remove('snake'));
+    removeSnake();
 
     // remove apple
     gridItems[appleIndex].classList.remove("apple");
@@ -65,7 +78,7 @@ function startGame(){
     genApples();
 
     // generate new snake
-    currentSnake.forEach(index => gridItems[index].classList.add('snake'));
+    createSnake();
 // responsible for running moveSnake() on loop
 timerId = setInterval(moveSnake, intervalTime);
 }
@@ -183,4 +196,9 @@ function genApples(){
 }
 
 // ------------------------------------------------------------------
-genApples();
+
+
+
+// refactor code
+// add css styling
+// make size variable
