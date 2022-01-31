@@ -11,7 +11,11 @@ let appleIndex = 0;
 
 let score =0;
 
+let timerId = 0;
+let intervalTime = 1000;
+let speed = 0.9;
 
+// -------------------------createGrid()---------------------------------
 
 function createGrid(){
     
@@ -34,10 +38,41 @@ function createGrid(){
     }
 }
 
+// ------------------------------------------------------------------------
+
 createGrid(); 
 
 // adds snake class to same index in gridItem as in currentSnake
 currentSnake.forEach(index => gridItems[index].classList.add('snake'));
+
+// ---------------------startGame()---------------------------
+
+function startGame(){
+    // remove snake from grid
+    currentSnake.forEach(index => gridItems[index].classList.remove('snake'));
+
+    // remove apple
+    gridItems[appleIndex].classList.remove("apple");
+
+    clearInterval(timerId);
+    currentSnake = [2,1,0];
+    score =0;
+    // readd new code to browser
+    scoreEL.textContent = score;
+
+    direction = 1;
+    intervalTime = 1000;
+    genApples();
+
+    // generate new snake
+    currentSnake.forEach(index => gridItems[index].classList.add('snake'));
+// responsible for running moveSnake() on loop
+timerId = setInterval(moveSnake, intervalTime);
+}
+// -----------------------------------------------------------
+
+
+// -------------------------moveSnake()---------------------------
 
 function moveSnake(){
 // verify not about to move into wall
@@ -49,9 +84,6 @@ if((head + width >=width*width && direction ===width) ||//traveling down and hit
 gridItems[currentSnake[0] + direction].classList.contains('snake')
 )
 { return clearInterval(timeId)}
-
-
-
 
     // 1. remove tail
     // remove last element from snake array
@@ -85,7 +117,12 @@ gridItems[currentSnake[0] + direction].classList.contains('snake')
 
         // display score
         scoreEL.textContent = score;
+
         // speed up snake
+        clearInterval(timerId)
+        intervalTime = intervalTime * speed;
+        console.log("Interval time: ", intervalTime);
+        timerId= setInterval(moveSnake, intervalTime);
     }
 
 
@@ -97,10 +134,9 @@ gridItems[currentSnake[0] + direction].classList.contains('snake')
     gridItems[currentSnake[0]].classList.add("snake")
 }
 
-moveSnake();
+// --------------------------------------------------------------------
 
-// responsible for running moveSnake() on loop
-let timerId = setInterval(moveSnake, 1000);
+
 
 // clearInterval(timeId);
 
@@ -128,7 +164,14 @@ function control(e){
     
 }
 
+// ---------------------Event Listeners ----------------------
 document.addEventListener("keydown", control)
+
+startBtn.addEventListener("click", startGame);
+
+// ------------------------------------------------------------
+
+// ----------------------genApples() -------------------------------
 
 function genApples(){
     do{
@@ -139,4 +182,5 @@ function genApples(){
     gridItems[appleIndex].classList.add("apple")
 }
 
+// ------------------------------------------------------------------
 genApples();
