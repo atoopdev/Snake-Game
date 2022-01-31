@@ -79,8 +79,8 @@ function startGame(){
 
     // generate new snake
     createSnake();
-// responsible for running moveSnake() on loop
-timerId = setInterval(moveSnake, intervalTime);
+    // responsible for running moveSnake() on loop
+    timerId = setInterval(moveSnake, intervalTime);
 }
 // -----------------------------------------------------------
 
