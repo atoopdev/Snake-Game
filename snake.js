@@ -9,6 +9,8 @@ const width = 10;
 
 let appleIndex = 0;
 
+let score =0;
+
 
 
 function createGrid(){
@@ -62,6 +64,28 @@ gridItems[currentSnake[0] + direction].classList.contains('snake')
     // 2. add to head
     // add square in direction heading
     currentSnake.unshift(currentSnake[0]+direction);
+
+    // deal with snake head getting apple
+    if(gridItems[head].classList.contains("apple")){
+        // remove class of apple
+        gridItems[head].classList.remove("apple")
+
+        // add snake class - turns square green but will not move with snake
+        gridItems[tail].classList.add("snake")
+
+        // grow snake array - now moves with snake
+        currentSnake.push(tail)
+        // generate new apple
+        genApples();
+        // add one to score
+
+        // speed up snake
+    }
+
+
+
+
+
     
     // add styling so is visible
     gridItems[currentSnake[0]].classList.add("snake")
