@@ -75,10 +75,16 @@ gridItems[currentSnake[0] + direction].classList.contains('snake')
 
         // grow snake array - now moves with snake
         currentSnake.push(tail)
+
         // generate new apple
         genApples();
-        // add one to score
 
+        // add one to score
+        score++;
+        console.log(score)
+
+        // display score
+        scoreEL.textContent = score;
         // speed up snake
     }
 
