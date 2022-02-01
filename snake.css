@@ -7,10 +7,32 @@ p {
 }
 
 body {
-  margin: 10;
-  padding: 10;
+  height: 100vh;
   font-family: "Press Start 2P", cursive;
   font-size: 1rem;
+  color: green;
+
+  background: hsla(152, 100%, 50%, 1);
+
+  background: linear-gradient(
+    90deg,
+    hsla(152, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(152, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(152, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#00FF87", endColorstr="#60EFFF", GradientType=1 );
 }
 
 h1 {
@@ -39,14 +61,16 @@ button {
 .container {
   width: 25%;
   max-width: 620px;
-  min-width: 325px;
-  margin: 0 auto;
-  border: 3px dotted black;
-  padding: 20px;
+  min-width: 320px;
+  margin: 100px auto;
+  border: 3px dotted green;
+  padding: 10px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  background-color: white;
 }
 
 .grid {
