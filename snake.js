@@ -80,6 +80,7 @@ function startGame(){
 
     // generate new snake
     createSnake();
+    
     // responsible for running moveSnake() on loop
     timerId = setInterval(moveSnake, intervalTime);
 }
@@ -195,6 +196,7 @@ function genApples(){
         appleIndex = Math.floor(Math.random() * gridItems.length) +1;
         console.log(appleIndex);
     } while (gridItems[appleIndex].classList.contains("snake"))
+
     gridItems[appleIndex].classList.add("apple")
 }
 
