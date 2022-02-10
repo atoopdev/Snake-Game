@@ -1,5 +1,6 @@
 const grid = document.querySelector(".grid");
 const startBtn = document.getElementById("start");
+const messageEL = document.getElementById("message-el");
 const scoreEL = document.getElementById("score");
 const gridItems = [];
 
@@ -96,7 +97,9 @@ if((head + width >=width*width && direction ===width) ||//traveling down and hit
 (head - width <0 && direction ===-width) ||//travel up and hit top wall
 gridItems[currentSnake[0] + direction].classList.contains('snake')
 )
-{ return clearInterval(timeId)}
+{   console.log("Hit board boundaries!")
+    messageEL.textContent = "Game Over!";
+    return clearInterval(timerId)}
 
     // 1. remove tail
     // remove last element from snake array
